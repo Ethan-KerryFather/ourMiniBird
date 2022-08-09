@@ -1,13 +1,16 @@
 import { initializeApp } from "firebase/app";
-import { getRemoteConfig } from "firebase/remote-config";
+
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDp9COu9HF1L0YreVruiNFD3C-eJyki9OI",
-  authDomain: "ntwitter-31a7e.firebaseapp.com",
-  projectId: "ntwitter-31a7e",
-  storageBucket: "ntwitter-31a7e.appspot.com",
-  messagingSenderId: "860338304504",
-  appId: "1:860338304504:web:f79443924575561ec3520d",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
-export default initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+
+export const authService = getAuth();
