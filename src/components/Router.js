@@ -17,7 +17,7 @@ export default function AppRouter({ isLoggedIn, userObj }) {
         ) : (
           <Route exact path="/" element={<Auth />} />
         )}
-        <Route exact path="/profile" element={<Profile />} />
+        <Route exact path="/profile" element={<Profile userObj={userObj} />} />
       </Routes>
     </Router>
   );
