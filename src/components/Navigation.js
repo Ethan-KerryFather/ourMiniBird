@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
+import "../style/NavStyle.scss";
 
-export default function Navigation() {
+export default function Navigation({ userObj }) {
   return (
-    <div>
+    <div className="nav-container">
       <nav>
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/profile">My Profile</Link>
+            <Link to="/profile">{userObj.displayName}님의 Profile</Link>
           </li>
         </ul>
       </nav>
