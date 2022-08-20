@@ -2,6 +2,9 @@ import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { dbService, storageService } from "../firebase";
 import { useState } from "react";
 import { ref, deleteObject } from "firebase/storage";
+import MediaCard from "./Card";
+import { Button } from "@mui/material";
+import "../style/Tweet.scss";
 
 const Nweet = ({ nweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -60,33 +63,46 @@ const Nweet = ({ nweetObj, isOwner }) => {
           <form onSubmit={onSubmit}>
             <input value={newNweet} required onChange={onEditChange} />
             <br />
-            <input type="submit" value="Update Nweet" />
+            <Button onClick={onSubmit}>Update Tweet</Button>
           </form>
-          <button onClick={toggleEditing}>edit cancel</button>
+          <Button onClick={toggleEditing}>Edit cancel</Button>
           <hr />
         </>
       ) : (
-        <>
-          <div style={{ border: "Solid", margin: "10px" }}>
-            <h4>{nweetObj.text}</h4>
-            {nweetObj.attachmentURL && (
-              <img
-                src={nweetObj.attachmentURL}
-                width="150px"
-                height="150px"
-                alt="트윗이미지"
-              />
-            )}
+        <div className="tweet-container">
+          <div style={{ margin: "10px" }} className="tweet-wrap">
+            <MediaCard text={nweetObj.text} imgsrc={nweetObj.attachmentURL} />
+
             {isOwner ? (
-              <div>
-                <button onClick={onDeleteClick}>Delete nweet</button>
-                <button onClick={toggleEditing}>Edit nweet</button>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-around",
+                }}
+              >
+                <Button
+                  onClick={onDeleteClick}
+                  color="error"
+                  variant="outlined"
+                  style={{ marginRight: "10px" }}
+                >
+                  Delete nweet
+                </Button>
+                <Button
+                  onClick={toggleEditing}
+                  color="success"
+                  variant="outlined"
+                  style={{ marginLeft: "10px" }}
+                >
+                  Edit nweet
+                </Button>
               </div>
             ) : (
-              <> ㄴ 작성자가 아니라 수정, 삭제 권한이 없습니다</>
+              <></>
             )}
           </div>
-        </>
+        </div>
       )}
     </div>
   );

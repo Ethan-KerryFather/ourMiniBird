@@ -1,18 +1,13 @@
-import {
-  collection,
-  addDoc,
-  doc,
-  onSnapshot,
-  getDocs,
-} from "firebase/firestore";
+import { collection, addDoc, onSnapshot } from "firebase/firestore";
 import { useState, useEffect, useRef } from "react";
 import { dbService, storageService } from "../firebase";
 import Nweet from "../components/Ntweet";
 import { v4 as uuidv4 } from "uuid";
 import { ref, uploadString, getDownloadURL } from "firebase/storage";
-
+import { TextareaAutosize } from "@mui/material";
 // DB에서 데이터를 읽거나 쓰려면 firebase.database.reference 인스턴스가 필요하다.
 // 여기서 dbService 가 바로 그거!
+import "../style/NavStyle.scss";
 
 export default function Home({ userObj }) {
   const [nweet, setNweet] = useState("");
@@ -105,34 +100,38 @@ export default function Home({ userObj }) {
 
   return (
     <div>
-      <h1>Nweeter Home</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          placeholder="what's on your mind?"
-          onChange={onChange}
-          value={nweet}
-          type="text"
-          maxLength={120}
-        />
-        <br />
-        <input
-          type="file"
-          accept="image/*"
-          onChange={onFileChange}
-          ref={fileInput}
-        />
-
-        <input type="submit" value="publish" />
-
-        {attachment && (
-          <img
-            src={attachment}
-            width="50px"
-            height="50px"
-            alt="이미지미리보기"
+      <div className="input-wrap">
+        <h1>꼼냥꼼냥 타임라인</h1>
+        <form onSubmit={onSubmit}>
+          <TextareaAutosize
+            aria-label="minimum height"
+            minRows={3}
+            placeholder="트윗을 날려보세요!"
+            style={{ width: "100%" }}
+            value={nweet}
+            onChange={onChange}
           />
-        )}
-      </form>
+          <br />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={onFileChange}
+            ref={fileInput}
+          />
+
+          <input type="submit" value="publish" />
+
+          {attachment && (
+            <img
+              src={attachment}
+              width="50px"
+              height="50px"
+              alt="이미지미리보기"
+            />
+          )}
+        </form>
+      </div>
+
       <div>
         {nweets.map((element) => {
           return (

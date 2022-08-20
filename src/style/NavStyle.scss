@@ -1,0 +1,42 @@
+.nav-container {
+  background: black;
+  height: 5rem;
+  width: 100%;
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      align-items: flex-end;
+      li {
+        margin: 20px 20px 20px 20px;
+        font-size: 1.5rem;
+        &:hover {
+          border-bottom: solid 3px orange;
+          padding-bottom: 5px;
+          transition: all 0.4s;
+        }
+        Link {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5%;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+}

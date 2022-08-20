@@ -7,6 +7,16 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
   const [userObj, setUserObj] = useState(null);
 
+  const refreshUser = () => {
+    setUserObj(authService.currentUser);
+    const user = authService.currentUser;
+    setUserObj({
+      uid: user.uid,
+      displayName: user.displayName,
+      updateProfile: (args) => user.updateProfile(args),
+    });
+  };
+
   useEffect(() => {
     onAuthStateChanged(authService, (user) => {
       if (user) {
@@ -16,7 +26,11 @@ function App() {
           `**USER INFO**\nUSER_UID :  ${user.uid}\nUSER_EMAIL :  ${user.email}`
         );
         setIsLoggedIn(user.email);
-        setUserObj(user);
+        setUserObj({
+          uid: user.uid,
+          displayName: user.displayName,
+          updateProfile: (args) => user.updateProfile(args),
+        });
       } else {
         // 현재 로그인 된 유저가 없다면
         console.log("there is no user that log-ined");
@@ -28,7 +42,11 @@ function App() {
   return (
     <div>
       {init ? (
-        <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
+        <AppRouter
+          isLoggedIn={isLoggedIn}
+          userObj={userObj}
+          refreshUser={refreshUser}
+        />
       ) : (
         <p>initializing...</p>
       )}
