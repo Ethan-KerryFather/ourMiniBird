@@ -88,7 +88,7 @@ export default function Auth() {
 
   return (
     <div style={{ height: "100vh" }}>
-      <h2>Auth</h2>
+      <h2>로그인</h2>
       <form onSubmit={onSubmit}>
         <input
           type="email"

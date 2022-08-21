@@ -100,7 +100,7 @@ export default function Home({ userObj }) {
   };
 
   return (
-    <div style={{ marginTop: "5%" }}>
+    <div style={{ marginTop: "5%", height: "100vh" }}>
       <div className="input-wrap">
         <form onSubmit={onSubmit}>
           <TextareaAutosize
