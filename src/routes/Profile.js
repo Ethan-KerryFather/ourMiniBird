@@ -2,6 +2,9 @@ import { authService, dbService } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { updateProfile } from "firebase/auth";
+import "../style/Profile.scss";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Typography from "@mui/material/Typography";
 
 export default function Profile({ userObj, refreshUser }) {
   let navigate = useNavigate();
@@ -39,7 +42,15 @@ export default function Profile({ userObj, refreshUser }) {
   };
 
   return (
-    <div>
+    <div style={{ height: "100vh" }} className="profile-container">
+      <div className="card-container">
+        <Typography variant="h4">Hello pretty bird!</Typography>
+        <AccountCircleIcon style={{ fontSize: "200px" }} />
+        <div className="userInfo">
+          <h3>bird Name: {userObj.displayName}</h3>
+          <h3>bird uid: {userObj.uid}</h3>
+        </div>
+      </div>
       <form onSubmit={onSubmit}>
         <input
           type="text"

@@ -99,9 +99,8 @@ export default function Home({ userObj }) {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: "5%" }}>
       <div className="input-wrap">
-        <h1>꼼냥꼼냥 타임라인</h1>
         <form onSubmit={onSubmit}>
           <TextareaAutosize
             aria-label="minimum height"

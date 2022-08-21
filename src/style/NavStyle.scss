@@ -1,31 +1,23 @@
-.nav-container {
-  background: black;
-  height: 5rem;
-  width: 100%;
-  nav {
-    ul {
-      list-style: none;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: flex-end;
-      align-items: flex-end;
-      li {
-        margin: 20px 20px 20px 20px;
-        font-size: 1.5rem;
-        &:hover {
-          border-bottom: solid 3px orange;
-          padding-bottom: 5px;
-          transition: all 0.4s;
-        }
-        Link {
-          color: white;
-        }
+.appbar-container {
+  overflow: hidden;
+  .menus {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 7%;
+    p {
+      font-size: 1.3rem;
+      position: relative;
+      margin-left: 5%;
+
+      &:hover {
+        transition: all 0.2s;
+        border-bottom: solid 2px orange;
+        color: orange;
       }
     }
   }
 }
-
 .input-wrap {
   display: flex;
   flex-direction: column;

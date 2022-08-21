@@ -40,7 +40,7 @@ function App() {
     });
   }, []);
   return (
-    <div>
+    <div style={{ position: "relative", height: "100%" }}>
       {init ? (
         <AppRouter
           isLoggedIn={isLoggedIn}
@@ -51,7 +51,9 @@ function App() {
         <p>initializing...</p>
       )}
 
-      <footer>&copy;{new Date().getFullYear()} Twitter-clone</footer>
+      <footer style={{ position: "absolute", bottom: "0" }}>
+        &copy;{new Date().getFullYear()} ourMiniBird
+      </footer>
     </div>
   );
 }
