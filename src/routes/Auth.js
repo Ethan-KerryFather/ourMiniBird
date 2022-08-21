@@ -87,7 +87,7 @@ export default function Auth() {
   };
 
   return (
-    <div>
+    <div style={{ height: "100vh" }}>
       <h2>Auth</h2>
       <form onSubmit={onSubmit}>
         <input

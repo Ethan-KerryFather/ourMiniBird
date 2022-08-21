@@ -5,6 +5,7 @@ import Nweet from "../components/Ntweet";
 import { v4 as uuidv4 } from "uuid";
 import { ref, uploadString, getDownloadURL } from "firebase/storage";
 import { TextareaAutosize } from "@mui/material";
+import SendTwoToneIcon from "@mui/icons-material/SendTwoTone";
 // DB에서 데이터를 읽거나 쓰려면 firebase.database.reference 인스턴스가 필요하다.
 // 여기서 dbService 가 바로 그거!
 import "../style/NavStyle.scss";
@@ -118,7 +119,7 @@ export default function Home({ userObj }) {
             ref={fileInput}
           />
 
-          <input type="submit" value="publish" />
+          <SendTwoToneIcon onClick={onSubmit} style={{ fontSize: "40px" }} />
 
           {attachment && (
             <img
