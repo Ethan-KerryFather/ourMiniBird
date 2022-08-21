@@ -118,8 +118,9 @@ export default function Home({ userObj }) {
             onChange={onFileChange}
             ref={fileInput}
           />
-
-          <SendTwoToneIcon onClick={onSubmit} style={{ fontSize: "40px" }} />
+          <div className="send-btn">
+            <SendTwoToneIcon onClick={onSubmit} style={{ fontSize: "40px" }} />
+          </div>
 
           {attachment && (
             <img
