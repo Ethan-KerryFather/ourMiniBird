@@ -102,14 +102,14 @@ export default function Home({ userObj }) {
   return (
     <div style={{ marginTop: "5%", height: "100vh" }}>
       <div className="input-wrap">
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="homeForm">
           <TextareaAutosize
             aria-label="minimum height"
             minRows={3}
             placeholder="트윗을 날려보세요!"
-            style={{ width: "100%" }}
             value={nweet}
             onChange={onChange}
+            id="textarea"
           />
           <br />
           <input

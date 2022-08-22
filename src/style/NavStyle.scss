@@ -38,15 +38,28 @@
   align-items: center;
   margin-bottom: 5%;
 
-  form {
+  form.homeForm {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
     overflow: visible;
 
+    #textarea {
+      background-color: rgba(44, 39, 42, 0.1);
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      transition: all 1s;
+      &:hover {
+        border: dashed rgba(44, 39, 42, 0.464) 0.1px;
+        transition: all 1s;
+      }
+    }
+
     .send-btn {
       display: flex;
+      color: rgba(44, 39, 42, 0.664);
       &:hover {
         animation-duration: 3s;
         animation-name: slidein;

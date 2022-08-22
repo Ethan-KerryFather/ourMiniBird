@@ -30,6 +30,7 @@ function App() {
           uid: user.uid,
           displayName: user.displayName,
           updateProfile: (args) => user.updateProfile(args),
+          email: user.email,
         });
       } else {
         // 현재 로그인 된 유저가 없다면
@@ -41,7 +42,7 @@ function App() {
   }, []);
   return (
     <div style={{ position: "relative" }}>
-      <div style={{ position: "relative", overflow: "scroll" }}>
+      <div style={{ position: "relative" }}>
         {init ? (
           <AppRouter
             isLoggedIn={isLoggedIn}
@@ -52,9 +53,9 @@ function App() {
           <p>initializing...</p>
         )}
       </div>
-      <footer style={{ position: "absolute", bottom: "0" }}>
+      {/* <footer style={{ position: "absolute", bottom: "0" }}>
         &copy;{new Date().getFullYear()} ourMiniBird
-      </footer>
+      </footer> */}
     </div>
   );
 }

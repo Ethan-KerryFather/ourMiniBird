@@ -2,12 +2,19 @@ import { authService, dbService } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { updateProfile } from "firebase/auth";
-import "../style/Profile.scss";
+import "../style/ProfileCard.scss";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Typography from "@mui/material/Typography";
 import LogoutIcon from "@mui/icons-material/Logout";
 import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
+import CurrencyBitcoinIcon from "@mui/icons-material/CurrencyBitcoin";
+
+import MenuIcon from "@mui/icons-material/Menu";
+import NoteIcon from "@mui/icons-material/Note";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import EmailIcon from "@mui/icons-material/Email";
 import Swal from "sweetalert2";
+import { onLog } from "firebase/app";
 export default function Profile({ userObj, refreshUser }) {
   let navigate = useNavigate();
 
@@ -70,37 +77,49 @@ export default function Profile({ userObj, refreshUser }) {
   };
 
   return (
-    <div style={{ height: "100vh" }} className="profile-container">
-      <div className="card-container">
-        <Typography variant="h4">Hello pretty bird!</Typography>
-        <AccountCircleIcon style={{ fontSize: "200px" }} />
-        <div className="userInfo">
-          <h3>bird Name: {userObj.displayName}</h3>
-          <form onSubmit={onSubmit}>
+    <div className="wrap">
+      <div className="member1">
+        <section>
+          <nav className="menu">
+            <a href="#1">
+              <MenuIcon />
+            </a>
+            <a href="#2" onClick={onLogOutClick}>
+              <LogoutIcon />
+            </a>
+          </nav>
+          <article className="profile">
+            <img src="img/profile.jpg" alt="profile" />
+            <h1>{userObj.displayName}</h1>
             <input
               type="text"
-              placeholder="닉네임 변경"
-              name="displayName"
-              onChange={onChange}
               value={displayName}
+              onChange={onChange}
+              placeholder="변경할 birdname"
             />
-            <CheckTwoToneIcon
-              onClick={onSubmit}
-              value="update Profile"
-              style={{ fontSize: "20" }}
-            />
-          </form>
-          <h3>bird uid: {userObj.uid}</h3>
-        </div>
-        <LogoutIcon
-          onClick={onLogOutClick}
-          style={{
-            fontSize: "100px",
-            marginTop: "5%",
-            position: "relative",
-            left: "40%",
-          }}
-        />
+            <input type="submit" value="send" onClick={onSubmit} />
+            <h2>bird UID - {userObj.uid}</h2>
+            <a href="#3" className="btnView">
+              View More
+            </a>
+            <ul className="contact">
+              <li>
+                <CurrencyBitcoinIcon id="icon" />
+                <span>BirdCoin wallet</span>
+              </li>
+              <li>
+                <EmailIcon id="icon" />
+                <span>{userObj.email}</span>
+              </li>
+            </ul>
+            <nav className="others">
+              <a href="member1.html" className="on"></a>
+              <a href="member2.html"></a>
+              <a href="member3.html"></a>
+              <a href="member4.html"></a>
+            </nav>
+          </article>
+        </section>
       </div>
     </div>
   );
