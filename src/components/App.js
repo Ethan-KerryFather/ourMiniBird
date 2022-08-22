@@ -40,17 +40,18 @@ function App() {
     });
   }, []);
   return (
-    <div style={{ position: "relative", height: "100%" }}>
-      {init ? (
-        <AppRouter
-          isLoggedIn={isLoggedIn}
-          userObj={userObj}
-          refreshUser={refreshUser}
-        />
-      ) : (
-        <p>initializing...</p>
-      )}
-
+    <div style={{ position: "relative" }}>
+      <div style={{ position: "relative", overflow: "scroll" }}>
+        {init ? (
+          <AppRouter
+            isLoggedIn={isLoggedIn}
+            userObj={userObj}
+            refreshUser={refreshUser}
+          />
+        ) : (
+          <p>initializing...</p>
+        )}
+      </div>
       <footer style={{ position: "absolute", bottom: "0" }}>
         &copy;{new Date().getFullYear()} ourMiniBird
       </footer>
