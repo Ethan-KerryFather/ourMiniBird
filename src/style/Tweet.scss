@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=DynaPuff&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 * {
   p {
-    font-family: "DynaPuff", cursive;
+    font-family: "DynaPuff", "Noto Sans KR", sans-serif;
   }
 }
 .main-container {
@@ -17,7 +17,7 @@
     width: 100%;
     height: 80%;
     overflow: auto;
-    background-color: rgba($color: #f7e16863, $alpha: 0.4);
+    background-color: rgba($color: #f7e16863, $alpha: 0.35);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -41,12 +41,12 @@
       flex-direction: column;
       align-items: center;
       img {
-        width: 90%;
+        width: 100%;
         height: 40%;
         margin: 5% auto 5%;
-        border-radius: 10%;
+
         box-sizing: border-box;
-        box-shadow: 10px 10px 20px rgba($color: #000000, $alpha: 0.8);
+        // box-shadow: 10px 10px 20px rgba($color: #000000, $alpha: 0.8);
         flex-shrink: 1;
       }
 
@@ -54,15 +54,14 @@
         flex-shrink: 1;
         margin: 4% 3%;
         line-height: 2;
-        border-bottom: solid rgba(94, 88, 78, 0.4);
-        border-top: solid rgba(94, 88, 78, 0.4);
-        border-radius: 10px;
+        //border-bottom: solid rgba(94, 88, 78, 0.4);
+        //border-top: solid rgba(94, 88, 78, 0.4);
+        //border-radius: 10px;
       }
       p:nth-of-type(2) {
         flex-shrink: 1;
         margin-top: 4%;
         color: rgba(36, 24, 2, 0.384);
-        margin-left: 40%;
       }
 
       .underMenu {

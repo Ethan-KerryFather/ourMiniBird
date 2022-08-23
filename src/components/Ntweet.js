@@ -8,6 +8,7 @@ import "../style/Tweet.scss";
 import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
+import Swal from "sweetalert2";
 
 const Nweet = ({ nweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -88,6 +89,13 @@ const Nweet = ({ nweetObj, isOwner }) => {
                     marginTop: "2%",
                     marginLeft: "2%",
                   }}
+                  onClick={() => {
+                    Swal.fire({
+                      icon: "info",
+                      title: "info",
+                      text: "기능개발중입니다:)",
+                    });
+                  }}
                 />
               </a>
               <a href="#2" className="icons">
@@ -98,6 +106,21 @@ const Nweet = ({ nweetObj, isOwner }) => {
                     float: "right",
                     marginTop: "2%",
                     marginRight: "2%",
+                  }}
+                  onClick={() => {
+                    Swal.fire({
+                      icon: "warning",
+                      title: "해당 게시글을 신고하시겠어요?",
+
+                      showCancelButton: true,
+                      confirmButtonText: "네",
+                      cancelButtonText: "아니요",
+                    }).then((result) => {
+                      /* Read more about isConfirmed, isDenied below */
+                      if (result.isConfirmed) {
+                        Swal.fire("신고되었습니다!", "", "success");
+                      }
+                    });
                   }}
                 />
               </a>
@@ -139,6 +162,13 @@ const Nweet = ({ nweetObj, isOwner }) => {
                   color: "rgba(2, 48, 48, 0.253)",
                   marginRight: "3%",
                   marginLeft: "auto",
+                }}
+                onClick={() => {
+                  Swal.fire({
+                    icon: "info",
+                    title: "info",
+                    text: "댓글기능 추가중입니다:)",
+                  });
                 }}
               />
             </section>

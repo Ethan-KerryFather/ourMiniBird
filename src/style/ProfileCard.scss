@@ -28,13 +28,13 @@
     flex-basis: 40%;
     flex-grow: 1;
     &.member1 {
-      background-color: rgba(255, 166, 0, 0.3);
       img {
         box-shadow: 5px 15px 30px rgba(255, 166, 0, 0.3);
       }
     }
 
     section {
+      border: solid 1.5px;
       box-sizing: border-box;
       width: 360px;
       padding: 30px;

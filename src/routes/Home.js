@@ -121,24 +121,30 @@ export default function Home({ userObj }) {
     <div style={{ marginTop: "5%", height: "100vh" }}>
       <div className="input-wrap">
         <form onSubmit={onSubmit} className="homeForm">
-          <TextareaAutosize
-            aria-label="minimum height"
-            minRows={3}
-            placeholder="트윗을 날려보세요!"
-            value={nweet}
-            onChange={onChange}
-            id="textarea"
-          />
+          <div className="textandbtn">
+            <TextareaAutosize
+              aria-label="minimum height"
+              minRows={9}
+              placeholder="트윗을 날려보세요!"
+              value={nweet}
+              onChange={onChange}
+              id="textarea"
+            />
+
+            <SendTwoToneIcon
+              onClick={onSubmit}
+              style={{ fontSize: "40px", color: "rgba(44, 39, 42, 0.664)" }}
+            />
+          </div>
+
           <br />
           <input
             type="file"
             accept="image/*"
             onChange={onFileChange}
             ref={fileInput}
+            className="fileInput"
           />
-          <div className="send-btn">
-            <SendTwoToneIcon onClick={onSubmit} style={{ fontSize: "40px" }} />
-          </div>
 
           {attachment && (
             <img
