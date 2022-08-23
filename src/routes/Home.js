@@ -53,9 +53,12 @@ export default function Home({ userObj }) {
     // 업로드 상태를 관리하고 모니터링하는데에 사용할 수 있다.
 
     try {
+      let date = new Date();
       const docRef = await addDoc(collection(dbService, "nweets"), {
         text: nweet,
-        createAt: Date.now(),
+        createAt: `${date.getFullYear()}.${
+          date.getMonth() + 1
+        }.${date.getDate()} ${date.getHours()}:${date.getMinutes()} thrown`,
         creatorId: userObj.uid,
         attachmentURL,
       });

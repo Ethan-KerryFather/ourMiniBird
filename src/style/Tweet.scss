@@ -1,7 +1,68 @@
-.tweet-container {
-  display: flex;
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff&display=swap");
 
-  direction: row;
-  align-items: center;
+* {
+  p {
+    font-family: "DynaPuff", cursive;
+  }
+}
+.main-container {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  .tweet-card {
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+    background-color: rgba($color: #f7e16863, $alpha: 0.4);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .icon-var {
+      width: 100%;
+      a.icons {
+        display: block;
+        width: 100%;
+        height: 10%;
+      }
+    }
+    section {
+      position: relative;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        width: 90%;
+        height: 40%;
+        margin: 5% auto 5%;
+        border-radius: 10%;
+        box-sizing: border-box;
+        box-shadow: 10px 10px 20px rgba($color: #000000, $alpha: 0.8);
+        flex-shrink: 1;
+      }
+
+      p:nth-of-type(1) {
+        flex-shrink: 1;
+        margin: 4% 3%;
+        line-height: 2;
+        border-bottom: solid rgba(94, 88, 78, 0.4);
+        border-top: solid rgba(94, 88, 78, 0.4);
+        border-radius: 10px;
+      }
+      p:nth-of-type(2) {
+        flex-shrink: 1;
+        margin-top: 4%;
+        color: rgba(36, 24, 2, 0.384);
+        margin-left: 40%;
+      }
+    }
+  }
 }

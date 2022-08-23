@@ -5,6 +5,9 @@ import { ref, deleteObject } from "firebase/storage";
 import MediaCard from "./Card";
 import { Button } from "@mui/material";
 import "../style/Tweet.scss";
+import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
+import MenuIcon from "@mui/icons-material/Menu";
+import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 
 const Nweet = ({ nweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -69,40 +72,108 @@ const Nweet = ({ nweetObj, isOwner }) => {
           <hr />
         </>
       ) : (
-        <div className="tweet-container">
-          <div style={{ margin: "10px" }} className="tweet-wrap">
-            <MediaCard text={nweetObj.text} imgsrc={nweetObj.attachmentURL} />
+        <div
+          className="main-container"
+          text={nweetObj.text}
+          imgsrc={nweetObj.attachmentURL}
+        >
+          <div className="tweet-card">
+            <div className="icon-var">
+              <a href="#1" className="icons">
+                <MenuIcon
+                  style={{
+                    fontSize: "2rem",
+                    color: "black",
+                    float: "left",
+                    marginTop: "2%",
+                    marginLeft: "2%",
+                  }}
+                />
+              </a>
+              <a href="#2" className="icons">
+                <ReportGmailerrorredIcon
+                  style={{
+                    fontSize: "2rem",
+                    color: "black",
+                    float: "right",
+                    marginTop: "2%",
+                    marginRight: "2%",
+                  }}
+                />
+              </a>
+            </div>
 
-            {isOwner ? (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-around",
-                }}
-              >
-                <Button
-                  onClick={onDeleteClick}
-                  color="error"
-                  variant="outlined"
-                  style={{ marginRight: "10px" }}
-                >
-                  Delete nweet
-                </Button>
+            <section>
+              {nweetObj.attachmentURL && (
+                <img src={nweetObj.attachmentURL} alt="profile" />
+              )}
+
+              <p>{nweetObj.text}</p>
+              <p>{nweetObj.createAt}</p>
+              <div>
                 <Button
                   onClick={toggleEditing}
                   color="success"
                   variant="outlined"
+                  style={{ marginRight: "10px" }}
+                >
+                  수정
+                </Button>
+                <Button
+                  onClick={onDeleteClick}
+                  color="error"
+                  variant="outlined"
                   style={{ marginLeft: "10px" }}
                 >
-                  Edit nweet
+                  삭제
                 </Button>
               </div>
-            ) : (
-              <></>
-            )}
+
+              <ChatBubbleIcon
+                style={{
+                  fontSize: "2rem",
+                  color: "rgba(2, 48, 48, 0.253)",
+                  marginBottom: "5%",
+                  marginRight: "3%",
+                  marginLeft: "auto",
+                  marginTop: "auto",
+                }}
+              />
+            </section>
           </div>
         </div>
+        //     <MediaCard text={nweetObj.text} imgsrc={nweetObj.attachmentURL} />
+
+        //     {isOwner ? (
+        //       <div
+        //         style={{
+        //           display: "flex",
+        //           flexDirection: "row",
+        //           justifyContent: "space-around",
+        //         }}
+        //       >
+        //         <Button
+        //           onClick={onDeleteClick}
+        //           color="error"
+        //           variant="outlined"
+        //           style={{ marginRight: "10px" }}
+        //         >
+        //           Delete nweet
+        //         </Button>
+        //         <Button
+        //           onClick={toggleEditing}
+        //           color="success"
+        //           variant="outlined"
+        //           style={{ marginLeft: "10px" }}
+        //         >
+        //           Edit nweet
+        //         </Button>
+        //       </div>
+        //     ) : (
+        //       <></>
+        //     )}
+        //   </div>
+        // </div>
       )}
     </div>
   );
