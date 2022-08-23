@@ -1,4 +1,11 @@
-import { collection, addDoc, onSnapshot } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  onSnapshot,
+  Timestamp,
+  query,
+  orderBy,
+} from "firebase/firestore";
 import { useState, useEffect, useRef } from "react";
 import { dbService, storageService } from "../firebase";
 import Nweet from "../components/Ntweet";
@@ -19,7 +26,11 @@ export default function Home({ userObj }) {
     console.log("user information : ", userObj);
     // onSnapshot은 실시간으로 데이터 변화를 감지한다.
     // 변화되는 것이 있으면 바로 객체를 업데이트 한 후 상태를 업데이트하여 렌더링을 트리거한다
-    onSnapshot(collection(dbService, "nweets"), (snapshot) => {
+    const q = query(
+      collection(dbService, "nweets"),
+      orderBy("timeStamp", "desc")
+    );
+    onSnapshot(q, (snapshot) => {
       const newArray = snapshot.docs.map((element) => {
         return {
           id: element.id,
@@ -62,6 +73,7 @@ export default function Home({ userObj }) {
         creatorId: userObj.uid,
         attachmentURL,
         creatorName: userObj.displayName,
+        timeStamp: Timestamp.now(),
       });
     } catch (e) {}
 
