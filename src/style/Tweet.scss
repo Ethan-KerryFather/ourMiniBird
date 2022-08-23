@@ -63,6 +63,12 @@
         color: rgba(36, 24, 2, 0.384);
         margin-left: 40%;
       }
+
+      .underMenu {
+        overflow: inherit;
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
 }

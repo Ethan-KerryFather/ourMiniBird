@@ -61,6 +61,7 @@ export default function Home({ userObj }) {
         }.${date.getDate()} ${date.getHours()}:${date.getMinutes()} thrown`,
         creatorId: userObj.uid,
         attachmentURL,
+        creatorName: userObj.displayName,
       });
     } catch (e) {}
 
