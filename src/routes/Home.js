@@ -5,6 +5,7 @@ import {
   Timestamp,
   query,
   orderBy,
+  where,
 } from "firebase/firestore";
 import { useState, useEffect, useRef } from "react";
 import { dbService, storageService } from "../firebase";
@@ -30,6 +31,7 @@ export default function Home({ userObj }) {
       collection(dbService, "nweets"),
       orderBy("timeStamp", "desc")
     );
+
     onSnapshot(q, (snapshot) => {
       const newArray = snapshot.docs.map((element) => {
         return {
@@ -45,11 +47,10 @@ export default function Home({ userObj }) {
     event.preventDefault();
 
     let attachmentURL = "";
+
     if (attachment !== "") {
       const attachmentRef = ref(storageService, `${userObj.uid}/${uuidv4()}`);
-
       await uploadString(attachmentRef, attachment, "data_url");
-
       await getDownloadURL(attachmentRef)
         .then((url) => {
           // insert url into an <img> tag to 'download'
@@ -74,6 +75,7 @@ export default function Home({ userObj }) {
         attachmentURL,
         creatorName: userObj.displayName,
         timeStamp: Timestamp.now(),
+        division: "article",
       });
     } catch (e) {}
 
