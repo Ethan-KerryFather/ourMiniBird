@@ -21,6 +21,7 @@ cloud Firestore
 
 
 <hr/>
+<br/>
   <h3>Commit message rule</h3>
   <pre>
   <h4>컴포넌트 수정</h4><p>modify Component : {Component name}</p>
