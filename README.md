@@ -1,6 +1,6 @@
 <h1>[ourMinibird] 아워미니버드</h1>
 <pre>
-  <h3>Personal project [2022-7 ~ 2022-7]</h3>
+  <h3>Personal project [2022-7 ~ 2022-7]</h3> 
 
 <p>The existing chat required a refresh to view new posts and was using a traditional database.
 There is an efficient database called Firebase, and I thought it would be tiring to use it. Therefore, I made a tiny sns that you can see right away as soon as a new post comes up like a messenger chat.</p>
